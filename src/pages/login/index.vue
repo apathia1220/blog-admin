@@ -26,9 +26,11 @@
 import { toast } from '@apathia/apathia'
 import { loginIn } from '@/apis/user'
 import { useUserStore } from '@/store/user'
+import { useHomeStore } from '@/store/home'
 
 const router = useRouter()
 const user = useUserStore()
+const home = useHomeStore()
 
 const userForm = ref({
     username: '',
@@ -49,6 +51,7 @@ const submitLogin = async () => {
         } else {
             toast.danger(res.message)
         }
+        await home.initHomeStore()
     } catch (e) {
         toast.danger(e)
     }

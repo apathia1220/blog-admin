@@ -3,11 +3,13 @@ import { routerMenu } from "./router/menu"
 import { toast } from '@apathia/apathia'
 import { Expand, Fold } from '@apathia/apathia.icon-svg'
 import { useUserStore } from '@/store/user'
+import { useHomeStore } from '@/store/home'
 import { logOut } from '@/apis/user'
 
 const router = useRouter()
 const route = useRoute()
 const user = useUserStore()
+const home = useHomeStore()
 
 const menuList = ref(routerMenu)
 const activeKey = ref('')
@@ -46,6 +48,7 @@ const logout = async () => {
 onMounted(async () => {
   activeKey.value = window.location.pathname
   initTitle()
+  await home.initHomeStore()
 })
 </script>
 
@@ -73,10 +76,12 @@ onMounted(async () => {
           </Popper>
         </div>
       </div>
-      <div class="relative min-h-home">
-        <Transition name="fade">
-          <router-view />
-        </Transition>
+      <div class="relative">
+        <router-view v-slot="{ Component }">
+          <transition name="fade">
+            <component :is="Component" />
+          </transition>
+        </router-view>
       </div>
     </div>
   </div>

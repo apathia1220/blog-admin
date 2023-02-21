@@ -70,6 +70,7 @@ import {
 } from 'echarts/components'
 import { LabelLayout, UniversalTransition } from 'echarts/features'
 import { CanvasRenderer } from 'echarts/renderers'
+import { Ref } from 'vue'
 
 echarts.use([
     TitleComponent,
@@ -220,7 +221,6 @@ const tagOption: ECOption = {
 const setChartOption = (myChart: echarts.ECharts, opt: ECOption) => {
     myChart.setOption(opt)
 }
-
 onBeforeMount(async () => {
     await homeStore.initHomeStore()
 })
