@@ -1,5 +1,5 @@
 <template>
-    <div class="relative w-screen h-screen login-container">
+    <div class="relative w-screen h-screen login-container bg-no-repeat bg-cover bg-center">
         <div class="absolute top-1/3 left-1/3 w-1/3 rounded-md text-gray-200 opacity-80 bg-login-bg">
             <div class="text-2xl text-center py-8">管理员登录</div>
             <div class="flex flex-col items-center">
@@ -11,7 +11,7 @@
                 <div class="mt-12">
                     <span class="text-xl pr-8">密码</span>
                     <input v-model="userForm.password" class="h-10 w-52 outline-none bg-login-bg border-b-2 border-gray-200"
-                        type="password">
+                        type="password" @keydown="handleKeyDown">
                 </div>
             </div>
             <div class="flex justify-center items-center w-full my-12 text-xl">
@@ -54,6 +54,12 @@ const submitLogin = async () => {
         await home.initHomeStore()
     } catch (e) {
         toast.danger(e)
+    }
+}
+
+const handleKeyDown = async(e: KeyboardEvent) => {
+    if (e.code === 'Enter') {
+        await submitLogin()
     }
 }
 </script>

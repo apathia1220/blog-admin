@@ -2,7 +2,7 @@
     <div>
         <div class="flex justify-between">
             <div class="flex">
-                <img class="h-24 w-24 rounded-md" src="@/assets/wallpaper.jpg">
+                <img class="h-24 w-24 rounded-md" :src="albumInfo.albumCover">
                 <div class="flex flex-col justify-between ml-4 justify-end">
                     <span>{{ albumInfo.albumName }}</span>
                     <span class="mb-2">共{{ albumInfo.photoCount }}张图片</span>

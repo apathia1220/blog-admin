@@ -9,14 +9,14 @@
                     <template #toggleHeader="{ show, toggleShow }">
                         <div class="flex items-center text-sm cursor-pointer">
                             <Checkbox v-model="selectedResource" :value="resource.id"
-                                :indeterminate="isSelectAll(resource) === true"
+                                :indeterminate="resource.indeterminate"
                                 @change="(ids: number[]) => handleAllChange(ids, resource)" />
                             <span @click="toggleShow">{{ resource.label }}</span>
                         </div>
                     </template>
                     <div class="flex flex-col ml-4" v-if="resource.children !== null">
                         <Checkbox v-model="selectedResource" v-for="res in resource.children" :key="res.label"
-                            :value="res.id" @change="() => handleChange(res.id, resource.id)">
+                            :value="res.id" @change="() => handleChange(res.id, resource)">
                             {{ res.label }}
                         </Checkbox>
                     </div>
@@ -31,9 +31,8 @@
 </template>
 
 <script lang='ts' setup>
-import { useResource } from '../_compasables'
-import { updateRoleResource, RoleUpdateRequest, ResourceItem, RoleItem } from '@/apis/auth'
-import { isFullContain } from '@/utils'
+import { useResource, ResourceDataItem } from '../_compasables'
+import { updateRoleResource, RoleUpdateRequest, RoleItem } from '@/apis/auth'
 import { toast } from '@apathia/apathia'
 
 const props = defineProps<{
@@ -41,40 +40,12 @@ const props = defineProps<{
     role: RoleItem
 }>()
 
-const { resourceList, fetchResource } = useResource()
 const selectedResource = ref<number[]>(props.role.resourceIds || [])
+const { selectedMap, resourceList, fetchResource } = useResource(selectedResource)
 const name = ref<string>(props.role.roleName || '')
 
-const isSelectAll = (res: ResourceItem): boolean | number => {
-    const total = res.children?.length || 0
-    const parentId = res.id
-    let count = 0
-
-    const parentItem = resourceList.value.find(item => item.id === parentId)
-    selectedResource.value.forEach((id: number) => {
-        const res = parentItem?.children?.find(item => item.id === id)
-        if (res !== undefined) {
-            count++
-        }
-    })
-
-    if (count > 0 && count < total) {
-        return true
-    } else if (count === 0) {
-        return -1
-    }
-    else if (count === total) {
-        selectedResource.value.push(parentId)
-        return false
-    } else {
-        return false
-    }
-}
-
-const handleAllChange = (id: number[], res: ResourceItem) => {
-    const flag = isSelectAll(res)
-    if (!flag && flag !== -1) {
-        // 点击前为全选状态
+const handleAllChange = (id: number[], res: ResourceDataItem) => {
+    if (res.checked) {
         selectedResource.value = selectedResource.value.filter(item => {
             const index = res.children?.findIndex(child => child.id === item)
             if (index !== -1 || item === res.id) {
@@ -84,21 +55,19 @@ const handleAllChange = (id: number[], res: ResourceItem) => {
             }
         })
     } else {
-        //点击前未全选
         const childrenIds = res.children?.map(child => child.id) || []
-        console.log(childrenIds)
         selectedResource.value.push(...childrenIds)
     }
 }
-
-const handleChange = (id: number, parentId: number) => {
-    const isExist = isFullContain(selectedResource.value, id)
-    if (!isExist) {
-        selectedResource.value = selectedResource.value.filter(item => item !== parentId)
+const handleChange = (id: number, parent: ResourceDataItem) => {
+    if (selectedMap.value.has(parent.id)) {
+        selectedResource.value = selectedResource.value.filter(item => item !== parent.id)
+    }
+    const isAllChecked = parent.children?.every(child => selectedMap.value.has(child.id))
+    if (isAllChecked) {
+        selectedResource.value.push(parent.id)
     }
 }
-
-
 
 const submitResource = async () => {
     if (name.value.trim() == "") {

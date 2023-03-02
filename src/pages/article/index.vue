@@ -19,7 +19,6 @@ const route = useRoute()
 
 watch(() => route.fullPath, () => {
     const pathName = route.fullPath
-    console.log(pathName.split('/')[1])
     title.value = titleMap[pathName.split('/')[2]]
 })
 

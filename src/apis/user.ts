@@ -1,4 +1,4 @@
-import { useUserStore } from '@/store/user'
+import { useUserStore, UserInfo } from '@/store/user'
 import { http } from '@/utils'
 
 const URLS = {
@@ -78,6 +78,13 @@ export interface UpdateUserRequest {
   nickname: string
 }
 
+export interface UserInfoResponse {
+  code: number
+  data: UserInfo
+  flag?: boolean
+  message: string
+}
+
 export const loginIn = (params: Record<'password' | 'username', string>) => {
   return http.post(URLS.LOGIN, { form: params })
 }
@@ -90,6 +97,11 @@ export const logOut = () => {
 export const updateUserInfo = (params: UpdateUserInfoRequest) => {
   const Header = useUserStore().headerAuth
   return http.put(URLS.USER_INFO, { json: params, ...Header })
+}
+
+export const getUserInfo = (id: number) => {
+  const Header = useUserStore().headerAuth
+  return http.get(URLS.USER_INFO + '/' + id, Header)
 }
 
 export const updatePassword = (params: PassWordRequest) => {

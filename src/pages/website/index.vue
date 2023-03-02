@@ -13,7 +13,7 @@
             <Form v-if="activeMenu === 1">
                 <FormItem class="pb-4" label="作者头像">
                     <div class="ml-2 h-28 w-28">
-                        <Upload v-model="(configForm.authorAvatar)" class="cursor-pointer" action="/api/admin/config/images"
+                        <Upload v-model="configForm.authorAvatar" class="cursor-pointer" action="/api/admin/config/images"
                             :resolve-url="resolveLocation" :headers="Header" draggable>
                             <template #drag>
                                 <div
@@ -21,6 +21,21 @@
                                     <Plus v-if="!configForm.authorAvatar" />
                                     <img class="h-28 w-28 rounded-md bg-cover bg-no-repeat object-cover" v-else
                                         :src="configForm.authorAvatar">
+                                </div>
+                            </template>
+                        </Upload>
+                    </div>
+                </FormItem>
+                <FormItem class="pb-4" label="网站背景">
+                    <div class="ml-2 w-36">
+                        <Upload v-model="configForm.logo" class="cursor-pointer" action="/api/admin/config/images"
+                            :resolve-url="resolveLocation" :headers="Header" draggable>
+                            <template #drag>
+                                <div
+                                    class="h-28 w-36 flex justify-center rounded border border-dashed hover:border-blue-300 border-gray-300 text-gray-300">
+                                    <Plus v-if="!configForm.logo" />
+                                    <img class="h-28 w-auto rounded-md bg-cover bg-no-repeat object-cover" v-else
+                                        :src="configForm.logo">
                                 </div>
                             </template>
                         </Upload>
@@ -172,7 +187,10 @@ import { getWebsiteConfig, updateWebsiteConfig, WebsiteConfigItem, WebsiteConfig
 import { useUserStore } from '@/store/user';
 
 const activeMenu = ref(1)
-const configForm = ref<Partial<WebsiteConfigItem>>({})
+const configForm = ref<Partial<WebsiteConfigItem>>({
+    authorAvatar: '',
+    logo: ''
+})
 const Header = useUserStore().headerAuth
 
 const getConfig = async () => {

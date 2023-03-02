@@ -46,7 +46,9 @@ const [tableOps, tableUtil] = createTable([
         render: ({ row }: any) =>
             row.albumCover === null
                 ? '暂无封面'
-                : <img src={row.albumCover} onClick={() => router.push('/albums/photos/' + row.id)} />
+                : <div class="flex justify-center">
+                    <img class="h-24 w-36 rounded-md bg-cover bg-no-repeat object-cover" src={row.albumCover} onClick={() => router.push('/albums/photos/' + row.id)} />
+                </div>
     },
     {
         title: '相册名',

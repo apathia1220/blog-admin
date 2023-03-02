@@ -65,7 +65,9 @@ const [tableOps, tableUtil] = createTable([
     {
         title: '图片',
         render: ({ row }: any) => {
-            return <img src={row.imgs[0]}></img>
+            return <div class="flex justify-center">
+                <img class="h-24 w-36 rounded-md bg-cover bg-no-repeat object-cover" src={row.imgs[0]} />
+            </div>
         }
     },
     {

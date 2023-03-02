@@ -12,8 +12,9 @@
             <div class="flex w-1/2">
                 <BaseButton danger :disabled="selectedArticle.length === 0" @click="batchDelete">批量删除</BaseButton>
                 <BaseButton success :disabled="selectedArticle.length === 0" @click="batchExport">批量导出</BaseButton>
-                <Upload action="/api/admin/articles/import" :headers="headers" :onAfterEachUpload="successHandler"
-                    :onError="errorHandler" draggable>
+                <Upload v-model="articleUpload" action="/api/admin/articles/import" :headers="headers"
+                    :onAfterEachUpload="successHandler" :onError="errorHandler"
+                    :resolve-url="(resp: any) => resp.data || ''" draggable>
                     <template #drag>
                         <BaseButton primary>批量导入</BaseButton>
                     </template>
@@ -70,6 +71,7 @@ const queryParam = ref<ListQuery>({
 const activeSatus = ref('all')
 let tagList: TagItem[] = ([])
 let cateList: CategoryItem[] = ([])
+const articleUpload = ref('')
 
 const filterQuery = (query: ListQuery) => {
     return Object.keys(query).reduce((acc: FilterQuery, key): FilterQuery => {
@@ -121,7 +123,9 @@ const [tableOps, tableUtil] = createTable([
     {
         title: '文章封面',
         render: ({ row }: any) => {
-            return (row.articleCover === null ? '暂无封面' : <Image src={row.articleCover} preview={false} />)
+            return (row.articleCover === null ? '暂无封面' : <div class="flex justify-center">
+                <img class="h-24 w-36 rounded-md bg-cover bg-no-repeat object-cover" src={row.articleCover} />
+            </div>)
         }
     },
     {

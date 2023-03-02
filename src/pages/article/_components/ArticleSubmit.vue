@@ -57,14 +57,14 @@
         </FormItem>
         <FormItem class="pb-4" label="上传封面" labelAlign="center">
             <div class="flex">
-                <Image class="article-cover" v-if="articleData.articleCover" :preview="false"
-                    :src="articleData.articleCover" />
-                <Upload class="w-24 cursor-pointer ml-4" v-model="articleData.articleCover"
-                    action="/api/admin/articles/images" :resolve-url="resolveLocation" :headers="headers" draggable>
+                <Upload class="w-24 cursor-pointer" v-model="articleData.articleCover" action="/api/admin/articles/images"
+                    :resolve-url="resolveLocation" :headers="headers" draggable>
                     <template #drag>
                         <div
-                            class="h-24 w-24 rounded border border-dashed hover:border-blue-300 border-gray-300 text-gray-300">
-                            <Plus />
+                            class="h-24 w-36 rounded border border-dashed hover:border-blue-300 border-gray-300 text-gray-300">
+                            <Plus class="h-24 w-36" v-if="!articleData.articleCover" />
+                            <img class="h-24 w-36 rounded-md bg-cover bg-no-repeat object-cover" v-else
+                                :src="articleData.articleCover" />
                         </div>
                     </template>
                 </Upload>
@@ -116,7 +116,9 @@ const emit = defineEmits(['update:modelValue'])
 
 const router = useRouter()
 
-const articleData = reactive<AtricleData>(baseMerge(props.modelValue, {}))
+const articleData = reactive<AtricleData>(baseMerge(props.modelValue, {
+    articleCover: props.modelValue?.articleCover || ''
+}))
 
 const showCate = ref(false)
 const openCate = async () => {
@@ -243,9 +245,7 @@ const submit = async () => {
         await addArticle(articleData)
         toast.success('文章发布成功')
         props.close()
-        if (articleData.id !== null) {
-            router.push('/article/list')
-        }
+        router.push('/article/list')
     } catch (e) {
         toast.danger(e)
     }

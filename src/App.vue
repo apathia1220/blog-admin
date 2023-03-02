@@ -5,6 +5,7 @@ import { Expand, Fold } from '@apathia/apathia.icon-svg'
 import { useUserStore } from '@/store/user'
 import { useHomeStore } from '@/store/home'
 import { logOut } from '@/apis/user'
+import { getUserInfo, UserInfoResponse } from '@/apis/user'
 
 const router = useRouter()
 const route = useRoute()
@@ -48,7 +49,11 @@ const logout = async () => {
 onMounted(async () => {
   activeKey.value = window.location.pathname
   initTitle()
-  await home.initHomeStore()
+  if (user.userInfo.token) {
+    await home.initHomeStore()
+    const res: UserInfoResponse = await getUserInfo(user.userInfo.userInfoId as number) as UserInfoResponse
+    user.userInfo.avatar = res.data.avatar
+  }
 })
 </script>
 
@@ -60,7 +65,7 @@ onMounted(async () => {
         <div class="text-center font-bold pb-4 cursor-pointer" @click="goToHome">Apathia</div>
       </template>
     </SideNav>
-    <div class="flex flex-col w-full overflow-scroll min-h-home">
+    <div class="flex flex-col ml-4 w-full overflow-scroll min-h-home">
       <div v-if="user.isLogin" class="flex relative items-center py-4 pl-2">
         <div class="flex">
           <Fold v-if="!miniSide" class="h-6 w-6" @click="toggleSide" />
@@ -76,7 +81,7 @@ onMounted(async () => {
           </Popper>
         </div>
       </div>
-      <div class="relative">
+      <div class="relative min-h-home">
         <router-view v-slot="{ Component }">
           <transition name="fade">
             <component :is="Component" />
