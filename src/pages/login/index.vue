@@ -57,7 +57,7 @@ const submitLogin = async () => {
     }
 }
 
-const handleKeyDown = async(e: KeyboardEvent) => {
+const handleKeyDown = async (e: KeyboardEvent) => {
     if (e.code === 'Enter') {
         await submitLogin()
     }
