@@ -8,9 +8,8 @@
         </FormItem>
         <FormItem label="相册封面">
             <div class="flex">
-                <Upload class="w-24 cursor-pointer" v-model="albumForm.albumCover"
-                    action="/api/admin/photos/albums/upload" :resolve-url="resolveLocation" :headers="headers"
-                    draggable>
+                <Upload class="w-24 cursor-pointer" v-model="albumForm.albumCover" action="/api/admin/photos/albums/upload"
+                    :resolve-url="resolveLocation" :headers="headers" draggable>
                     <template #drag>
                         <div
                             class="h-24 w-24 rounded border border-dashed hover:border-blue-300 border-gray-300 text-gray-300">
@@ -86,6 +85,4 @@ const resolveLocation = (resp: any) => {
     return resp.data || ''
 }
 </script>
-<style lang='scss' scoped>
-
-</style>
+<style lang='scss' scoped></style>

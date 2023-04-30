@@ -8,7 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@apathia/apathia": "1.2.17",
+    "@apathia/apathia": "^1.2.22",
     "@apathia/apathia.icon-svg": "^0.1.7",
     "@jridgewell/sourcemap-codec": "^1.4.14",
     "@types/lodash-es": "^4.17.6",

@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@apathia/apathia': 1.2.17
+  '@apathia/apathia': ^1.2.22
   '@apathia/apathia.icon-svg': ^0.1.7
   '@jridgewell/sourcemap-codec': ^1.4.14
   '@types/lodash-es': ^4.17.6
@@ -39,7 +39,7 @@ specifiers:
   vue-tsc: ^1.0.24
 
 dependencies:
-  '@apathia/apathia': 1.2.17_cycqjmyxpqpkj4auwo2mhsgw3q
+  '@apathia/apathia': 1.2.22_cycqjmyxpqpkj4auwo2mhsgw3q
   '@apathia/apathia.icon-svg': 0.1.7_vue@3.2.47
   '@jridgewell/sourcemap-codec': 1.4.14
   '@types/lodash-es': 4.17.6
@@ -110,7 +110,7 @@ packages:
       '@apathia/apathia.custom-render': 1.2.7_vue@3.2.47
       '@apathia/apathia.icon': 1.2.7_hmuptsblhheur2tugfgucj7gc4
       '@apathia/apathia.icon-svg': 0.1.7_vue@3.2.47
-      '@apathia/apathia.shared': 1.2.7_hmuptsblhheur2tugfgucj7gc4
+      '@apathia/apathia.shared': 1.2.8_hmuptsblhheur2tugfgucj7gc4
       '@apathia/apathia.twind': 1.2.7_hmuptsblhheur2tugfgucj7gc4
       vue: 3.2.47
     transitivePeerDependencies:
@@ -123,7 +123,7 @@ packages:
       vue: ^3.2.37
     dependencies:
       '@apathia/apathia.hooks': 1.2.7_cycqjmyxpqpkj4auwo2mhsgw3q
-      '@apathia/apathia.shared': 1.2.7_hmuptsblhheur2tugfgucj7gc4
+      '@apathia/apathia.shared': 1.2.8_hmuptsblhheur2tugfgucj7gc4
       '@apathia/apathia.twind': 1.2.7_hmuptsblhheur2tugfgucj7gc4
       vue: 3.2.47
     transitivePeerDependencies:
@@ -144,8 +144,8 @@ packages:
       '@apathia/apathia.image': 0.2.7_hmuptsblhheur2tugfgucj7gc4
       '@apathia/apathia.input': 1.2.7_cycqjmyxpqpkj4auwo2mhsgw3q
       '@apathia/apathia.select': 1.2.11_cycqjmyxpqpkj4auwo2mhsgw3q
-      '@apathia/apathia.shared': 1.2.7_hmuptsblhheur2tugfgucj7gc4
-      '@apathia/apathia.sidenav': 0.2.13_cycqjmyxpqpkj4auwo2mhsgw3q
+      '@apathia/apathia.shared': 1.2.8_hmuptsblhheur2tugfgucj7gc4
+      '@apathia/apathia.sidenav': 0.2.18_cycqjmyxpqpkj4auwo2mhsgw3q
       '@apathia/apathia.table': 1.2.9_cycqjmyxpqpkj4auwo2mhsgw3q
       '@apathia/apathia.transfer': 0.2.8_cycqjmyxpqpkj4auwo2mhsgw3q
       '@apathia/apathia.twind': 1.2.7_hmuptsblhheur2tugfgucj7gc4
@@ -177,7 +177,7 @@ packages:
       '@apathia/apathia.hooks': 1.2.7_cycqjmyxpqpkj4auwo2mhsgw3q
       '@apathia/apathia.icon': 1.2.7_hmuptsblhheur2tugfgucj7gc4
       '@apathia/apathia.icon-svg': 0.1.7_vue@3.2.47
-      '@apathia/apathia.shared': 1.2.7_hmuptsblhheur2tugfgucj7gc4
+      '@apathia/apathia.shared': 1.2.8_hmuptsblhheur2tugfgucj7gc4
       '@apathia/apathia.twind': 1.2.7_hmuptsblhheur2tugfgucj7gc4
       vue: 3.2.47
     transitivePeerDependencies:
@@ -259,7 +259,7 @@ packages:
       vue: ^3.2.37
       vue-router: ^4.0.0-0
     dependencies:
-      '@apathia/apathia.shared': 1.2.7_hmuptsblhheur2tugfgucj7gc4
+      '@apathia/apathia.shared': 1.2.8_hmuptsblhheur2tugfgucj7gc4
       '@types/lodash-es': 4.17.6
       lodash-es: 4.17.21
       vue: 3.2.47
@@ -281,7 +281,7 @@ packages:
     peerDependencies:
       vue: ^3.2.37
     dependencies:
-      '@apathia/apathia.shared': 1.2.7_hmuptsblhheur2tugfgucj7gc4
+      '@apathia/apathia.shared': 1.2.8_hmuptsblhheur2tugfgucj7gc4
       vue: 3.2.47
     transitivePeerDependencies:
       - typescript
@@ -295,7 +295,7 @@ packages:
       '@apathia/apathia.alert': 1.2.7_hmuptsblhheur2tugfgucj7gc4
       '@apathia/apathia.icon': 1.2.7_hmuptsblhheur2tugfgucj7gc4
       '@apathia/apathia.icon-svg': 0.1.7_vue@3.2.47
-      '@apathia/apathia.shared': 1.2.7_hmuptsblhheur2tugfgucj7gc4
+      '@apathia/apathia.shared': 1.2.8_hmuptsblhheur2tugfgucj7gc4
       '@apathia/apathia.twind': 1.2.7_hmuptsblhheur2tugfgucj7gc4
       vue: 3.2.47
     transitivePeerDependencies:
@@ -336,7 +336,7 @@ packages:
     dependencies:
       '@apathia/apathia.custom-render': 1.2.7_vue@3.2.47
       '@apathia/apathia.hooks': 1.2.7_cycqjmyxpqpkj4auwo2mhsgw3q
-      '@apathia/apathia.shared': 1.2.7_hmuptsblhheur2tugfgucj7gc4
+      '@apathia/apathia.shared': 1.2.8_hmuptsblhheur2tugfgucj7gc4
       '@apathia/apathia.twind': 1.2.7_hmuptsblhheur2tugfgucj7gc4
       lodash: 4.17.21
       vue: 3.2.47
@@ -352,7 +352,7 @@ packages:
     dependencies:
       '@apathia/apathia.hooks': 1.2.7_cycqjmyxpqpkj4auwo2mhsgw3q
       '@apathia/apathia.popper': 0.2.7_cycqjmyxpqpkj4auwo2mhsgw3q
-      '@apathia/apathia.shared': 1.2.7_hmuptsblhheur2tugfgucj7gc4
+      '@apathia/apathia.shared': 1.2.8_hmuptsblhheur2tugfgucj7gc4
       '@apathia/apathia.twind': 1.2.7_hmuptsblhheur2tugfgucj7gc4
       vue: 3.2.47
     transitivePeerDependencies:
@@ -365,7 +365,7 @@ packages:
     peerDependencies:
       vue: ^3.2.37
     dependencies:
-      '@apathia/apathia.shared': 1.2.7_hmuptsblhheur2tugfgucj7gc4
+      '@apathia/apathia.shared': 1.2.8_hmuptsblhheur2tugfgucj7gc4
       '@apathia/apathia.twind': 1.2.7_hmuptsblhheur2tugfgucj7gc4
       vue: 3.2.47
     transitivePeerDependencies:
@@ -379,9 +379,9 @@ packages:
     dependencies:
       '@apathia/apathia.custom-render': 1.2.7_vue@3.2.47
       '@apathia/apathia.hooks': 1.2.7_cycqjmyxpqpkj4auwo2mhsgw3q
-      '@apathia/apathia.shared': 1.2.7_hmuptsblhheur2tugfgucj7gc4
+      '@apathia/apathia.shared': 1.2.8_hmuptsblhheur2tugfgucj7gc4
       '@apathia/apathia.twind': 1.2.7_hmuptsblhheur2tugfgucj7gc4
-      '@popperjs/core': 2.11.6
+      '@popperjs/core': 2.11.7
       vue: 3.2.47
     transitivePeerDependencies:
       - typescript
@@ -407,7 +407,7 @@ packages:
     peerDependencies:
       vue: ^3.2.37
     dependencies:
-      '@apathia/apathia.shared': 1.2.7_hmuptsblhheur2tugfgucj7gc4
+      '@apathia/apathia.shared': 1.2.8_hmuptsblhheur2tugfgucj7gc4
       '@apathia/apathia.twind': 1.2.7_hmuptsblhheur2tugfgucj7gc4
       element-resize-detector: 1.2.4
       lodash-es: 4.17.21
@@ -424,7 +424,7 @@ packages:
       '@apathia/apathia.hooks': 1.2.7_cycqjmyxpqpkj4auwo2mhsgw3q
       '@apathia/apathia.icon': 1.2.7_hmuptsblhheur2tugfgucj7gc4
       '@apathia/apathia.icon-svg': 0.1.7_vue@3.2.47
-      '@apathia/apathia.shared': 1.2.7_hmuptsblhheur2tugfgucj7gc4
+      '@apathia/apathia.shared': 1.2.8_hmuptsblhheur2tugfgucj7gc4
       '@apathia/apathia.twind': 1.2.7_hmuptsblhheur2tugfgucj7gc4
       lodash: 4.17.21
       vue: 3.2.47
@@ -433,8 +433,8 @@ packages:
       - vue-router
     dev: false
 
-  /@apathia/apathia.shared/1.2.7_hmuptsblhheur2tugfgucj7gc4:
-    resolution: {integrity: sha512-skBu7neJX5KftyfXSBxJuIzVe1+L3geK8tR37sv5qAhEvS6pesIJmNh9YYC82DwTR6u7M0wbQiuYcbmF5ZWUNQ==}
+  /@apathia/apathia.shared/1.2.8_hmuptsblhheur2tugfgucj7gc4:
+    resolution: {integrity: sha512-Aa5qE6q8puUoKiYSNUyk4j91FmKCJ/2Xl523NyQ3f84R2/290J8VmWTTZT/e9sPL3yMIvZUycH5MRmMeIWFT1Q==}
     peerDependencies:
       vue: ^3.2.37
     dependencies:
@@ -445,8 +445,8 @@ packages:
       - typescript
     dev: false
 
-  /@apathia/apathia.sidenav/0.2.13_cycqjmyxpqpkj4auwo2mhsgw3q:
-    resolution: {integrity: sha512-2wDQ8MRNv5Q3rr5Sr2QIgLa/eF2rrw3GT0jfn22EfGIM0rE8lMFCDy3RR8pf4TxBp7Dh4V+WUlv0Q+SPcAJm6A==}
+  /@apathia/apathia.sidenav/0.2.18_cycqjmyxpqpkj4auwo2mhsgw3q:
+    resolution: {integrity: sha512-AJvQ/cVty+az9tgvJWnI/OAVu7Qs81/ZmKR3qx/qBSXDXoVLf5ighjdfpSQa94w9KQQsZCGSCrpeLbTTzzqIiA==}
     peerDependencies:
       vue: ^3.2.37
     dependencies:
@@ -468,7 +468,7 @@ packages:
     dependencies:
       '@apathia/apathia.hooks': 1.2.7_cycqjmyxpqpkj4auwo2mhsgw3q
       '@apathia/apathia.popper': 0.2.7_cycqjmyxpqpkj4auwo2mhsgw3q
-      '@apathia/apathia.shared': 1.2.7_hmuptsblhheur2tugfgucj7gc4
+      '@apathia/apathia.shared': 1.2.8_hmuptsblhheur2tugfgucj7gc4
       '@apathia/apathia.twind': 1.2.7_hmuptsblhheur2tugfgucj7gc4
       vue: 3.2.47
     transitivePeerDependencies:
@@ -594,7 +594,7 @@ packages:
       '@apathia/apathia.icon': 1.2.7_hmuptsblhheur2tugfgucj7gc4
       '@apathia/apathia.icon-svg': 0.1.7_vue@3.2.47
       '@apathia/apathia.input': 1.2.7_cycqjmyxpqpkj4auwo2mhsgw3q
-      '@apathia/apathia.shared': 1.2.7_hmuptsblhheur2tugfgucj7gc4
+      '@apathia/apathia.shared': 1.2.8_hmuptsblhheur2tugfgucj7gc4
       '@apathia/apathia.twind': 1.2.7_hmuptsblhheur2tugfgucj7gc4
       lodash: 4.17.21
       vue: 3.2.47
@@ -603,8 +603,8 @@ packages:
       - vue-router
     dev: false
 
-  /@apathia/apathia/1.2.17_cycqjmyxpqpkj4auwo2mhsgw3q:
-    resolution: {integrity: sha512-23HYTudsKyOmRwxyNsLC8R+MO0WRc9DSKAGWkShUrjW5HnMcMgDHMF91J3QVv7XcAwMUFM7xWE2aEKJW8Lr48g==}
+  /@apathia/apathia/1.2.22_cycqjmyxpqpkj4auwo2mhsgw3q:
+    resolution: {integrity: sha512-T2hVzrdMu5+glEiaxLghjnlfMY/K8MNSia+1ZRmAEyZVpDTLrzbKb0w2O/oysTW6A3j4SlejjYfwC6OSRg8ZwQ==}
     peerDependencies:
       vue: ^3.2.37
     dependencies:
@@ -631,7 +631,7 @@ packages:
       '@apathia/apathia.radio': 1.2.7_cycqjmyxpqpkj4auwo2mhsgw3q
       '@apathia/apathia.scroll-container': 0.2.7_hmuptsblhheur2tugfgucj7gc4
       '@apathia/apathia.select': 1.2.11_cycqjmyxpqpkj4auwo2mhsgw3q
-      '@apathia/apathia.sidenav': 0.2.13_cycqjmyxpqpkj4auwo2mhsgw3q
+      '@apathia/apathia.sidenav': 0.2.18_cycqjmyxpqpkj4auwo2mhsgw3q
       '@apathia/apathia.slider': 0.2.7_cycqjmyxpqpkj4auwo2mhsgw3q
       '@apathia/apathia.switch': 0.2.7_cycqjmyxpqpkj4auwo2mhsgw3q
       '@apathia/apathia.table': 1.2.9_cycqjmyxpqpkj4auwo2mhsgw3q
@@ -1192,8 +1192,8 @@ packages:
       fastq: 1.15.0
     dev: false
 
-  /@popperjs/core/2.11.6:
-    resolution: {integrity: sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==}
+  /@popperjs/core/2.11.7:
+    resolution: {integrity: sha512-Cr4OjIkipTtcXKjAsm8agyleBuDHvxzeBoa1v543lbv1YaIwQjESsVcmjiWiPEbC1FIeHOG/Op9kdCmAmiS3Kw==}
     dev: false
 
   /@rollup/pluginutils/5.0.2:
@@ -1685,8 +1685,8 @@ packages:
   /csstype/2.6.21:
     resolution: {integrity: sha512-Z1PhmomIfypOpoMjRQB70jfvy/wxT50qW08YXO5lMIJkrdq4yOTR+AW7FqutScmB9NkLwxo+jU+kZLbofZZq/w==}
 
-  /csstype/3.1.1:
-    resolution: {integrity: sha512-DJR/VvkAvSZW9bTouZue2sSxDwdTN92uHjqeKVm+0dAqdfNykRzQ95tay8aXMBAAPpUiq4Qcug2L7neoRh2Egw==}
+  /csstype/3.1.2:
+    resolution: {integrity: sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ==}
     dev: false
 
   /de-indent/1.0.2:
@@ -3356,7 +3356,7 @@ packages:
       typescript:
         optional: true
     dependencies:
-      csstype: 3.1.1
+      csstype: 3.1.2
       htmlparser2: 6.1.0
       style-vendorizer: 2.2.3
       typescript: 4.9.5

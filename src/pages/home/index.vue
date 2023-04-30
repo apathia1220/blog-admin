@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { routerMenu } from "@/router/menu"
+import { routerMenu as menuList } from "@/router/menu"
 import { toast } from '@apathia/apathia'
-import { Expand, Fold } from '@apathia/apathia.icon-svg'
+import { Expand, Fold, HomeFilled } from '@apathia/apathia.icon-svg'
 import { useUserStore } from '@/store/user'
 import { useHomeStore } from '@/store/home'
 import { logOut } from '@/apis/user'
@@ -12,22 +12,26 @@ const route = useRoute()
 const user = useUserStore()
 const home = useHomeStore()
 
-const menuList = ref(routerMenu)
 const activeKey = ref('')
 
 const menuTitle = ref('')
 const handleSelect = (node: Record<string, any>) => {
-    menuTitle.value = menuList.value.find(item => item.tag === node.path.split('/')[1])?.text || '主页'
+    menuTitle.value = menuList.find(item => item.tag === node.path.split('/')[1])?.text || '主页'
     activeKey.value = node.path
     router.push(node.path)
 }
 const initTitle = () => {
-    menuTitle.value = menuList.value.find(item => item.tag === route.path.split('/')[1])?.text || ''
+    menuTitle.value = menuList.find(item => item.tag === route.path.split('/')[1])?.text || ''
 }
 
 const miniSide = ref(false)
 const toggleSide = () => {
     miniSide.value = !miniSide.value
+}
+
+const sideShow = ref(!miniSide.value)
+const handleSideMini = (minState: boolean) => {
+    sideShow.value = !minState
 }
 
 const goToHome = () => {
@@ -60,14 +64,17 @@ onMounted(async () => {
 <template>
     <div class="flex h-screen w-full">
         <Transition name="sidenav">
-            <SideNav v-show="!miniSide && user.isLogin" :menu-list="menuList" :active-key="activeKey" key-field="path"
-                search @select="handleSelect">
+            <SideNav v-show="user.isLogin" :mini="miniSide" :menu-list="menuList" :active-key="activeKey" key-field="path"
+                search @select="handleSelect" @minChange="handleSideMini">
                 <template #menuTop>
-                    <div class="text-center font-bold pb-4 cursor-pointer" @click="goToHome">Apathia</div>
+                    <div class="flex items-center justify-center font-bold pb-4 cursor-pointer" @click="goToHome">
+                        <span v-if="sideShow">Apathia</span>
+                        <HomeFilled class="h-8 w-8" v-else />
+                    </div>
                 </template>
             </SideNav>
         </Transition>
-        <div class="flex flex-col ml-4 w-full min-h-home">
+        <div class="flex flex-col w-full min-h-home">
             <div class="flex relative items-center py-4 pl-2">
                 <div class="flex">
                     <Fold v-if="!miniSide" class="h-6 w-6" @click="toggleSide" />
