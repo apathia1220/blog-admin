@@ -3,7 +3,7 @@
         <h1 class="border-b-4 text-2xl p-4 w-36">日志管理</h1>
         <div class="mt-4 h-full">
             <router-view v-slot="{ Component }">
-                <transition name="fade">
+                <transition name="fade" mode="out-in">
                     <component :is="Component" />
                 </transition>
             </router-view>

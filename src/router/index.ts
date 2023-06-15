@@ -112,11 +112,12 @@ const routes = [
       {
         path: 'website',
         name: 'website',
+        component: () => import('../pages/website/index.vue'),
         children: [
           {
             path: 'config',
             name: 'config',
-            component: () => import('../pages/website/index.vue')
+            component: () => import('../pages/website/Config.vue')
           },
           {
             path: 'about',

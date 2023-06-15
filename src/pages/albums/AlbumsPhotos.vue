@@ -3,7 +3,7 @@
         <div class="flex justify-between">
             <div class="flex">
                 <img class="h-24 w-24 rounded-md" :src="albumInfo.albumCover">
-                <div class="flex flex-col justify-between ml-4 justify-end">
+                <div class="flex flex-col ml-4 justify-end">
                     <span>{{ albumInfo.albumName }}</span>
                     <span class="mb-2">共{{ albumInfo.photoCount }}张图片</span>
                     <BaseButton @click="openUploadModal">上传图片</BaseButton>
@@ -166,8 +166,9 @@ const handleDelete = async (id: number | null) => {
             render: '确认删除选中的图片？'
         })
         await deletePhotoFromAlbum(param)
-        const index = photoList.value.findIndex(item => item.id === id)
-        photoList.value.splice(index, 1)
+        // const index = photoList.value.findIndex(item => item.id === id)
+        // photoList.value.splice(index, 1)
+        await getPhotosByAlbum()
         await getAlbumInfo()
         toast.success('删除成功')
     } catch (e: any) {
