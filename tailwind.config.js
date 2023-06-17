@@ -3,7 +3,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'login-bg': '#212121'
+        'login-bg': '#212121',
+        'home-bg': 'linear-gradient(135deg, #b9cdcf, #f1f5e2, #d9ece9)'
       },
       height: {
         'code': '36rem'

@@ -41,11 +41,12 @@
         </div>
         <Table v-model:selected="selectedArticle" v-bind="tableOps" row-key="id" />
         <Pagination :options="tableOps.pagination" @page-change="(pn: number) => changePage(pn)" />
+        <Loading v-if="isLoading" context="" />
     </div>
 </template>
 
 <script lang='tsx' setup>
-import { BaseButton, createTable, Image, Switch, toast, Tag, useConfirm } from '@apathia/apathia'
+import { BaseButton, createTable, Switch, toast, Tag, useConfirm } from '@apathia/apathia'
 import { AlarmClock } from '@apathia/apathia.icon-svg'
 import { editArticleStatus, editArticleIsTop, deleteArticle, getArticleList, exportArticle } from '@/apis/articles'
 import { getTagList } from '@/apis/tags'
@@ -53,6 +54,7 @@ import { getCateList } from '@/apis/categories'
 import { ListQuery, FilterQuery, ListResponse, UpdateDelete, UpdateTopAndFeatured, TagItem, CategoryItem } from './types'
 import { articleType, articleList } from './constant'
 import { useUserStore } from '@/store/user'
+import Loading from '@/components/Loading.vue'
 
 const headers = useUserStore().headerAuth
 
@@ -72,6 +74,7 @@ const activeSatus = ref('all')
 let tagList: TagItem[] = ([])
 let cateList: CategoryItem[] = ([])
 const articleUpload = ref('')
+const isLoading = ref(false)
 
 const filterQuery = (query: ListQuery) => {
     return Object.keys(query).reduce((acc: FilterQuery, key): FilterQuery => {
@@ -84,6 +87,7 @@ const filterQuery = (query: ListQuery) => {
 
 const getAricles = async () => {
     try {
+        isLoading.value = true
         const query = filterQuery(queryParam.value)
         const { data }: any = await getArticleList(query)
         tableUtil.setData(data?.records || [])
@@ -94,6 +98,8 @@ const getAricles = async () => {
         })
     } catch (e) {
         toast.danger(e)
+    } finally {
+        isLoading.value = false
     }
 }
 

@@ -1,20 +1,30 @@
 <template>
-    <div class="absolute top-0 h-full w-full flex flex-col items-center opacity-50">
-        <slot></slot>
-        <div class="loading">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+    <Teleport to="body">
+        <div
+            class="absolute top-0 h-full w-full flex flex-col items-center justify-center opacity-80 bg-gray-300 loading-container">
+            <slot></slot>
+            <div class="loading">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="text-xl">{{ context || '加载中' }}</div>
         </div>
-    </div>
+    </Teleport>
 </template>
 
 <script lang='ts' setup>
-
+defineProps<{
+    context?: string
+}>()
 </script>
 <style lang='scss' scoped>
+.loading-container {
+    z-index: 100000;
+}
+
 .loading {
     --speed-of-animation: 0.9s;
     --gap: 6px;

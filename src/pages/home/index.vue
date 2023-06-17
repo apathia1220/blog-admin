@@ -93,7 +93,7 @@ onMounted(async () => {
             </div>
             <div class="relative overflow-scroll min-h-home bg-gray-200">
                 <router-view v-slot="{ Component }">
-                    <transition name="fade">
+                    <transition name="fade" mode="out-in">
                         <component :is="Component" />
                     </transition>
                 </router-view>

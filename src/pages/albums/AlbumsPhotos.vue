@@ -14,16 +14,17 @@
                 <div class="flex items-end">
                     <Checkbox :modelValue="isSelectedAll" @click="handleSelectAll">全选</Checkbox>
                     <span class="text-sm mr-2">已选择{{ selectedPhotos.length }}张</span>
-                    <BaseButton @click="handleMove">移动到</BaseButton>
-                    <BaseButton danger @click="handleDelete(null)">批量删除</BaseButton>
+                    <BaseButton :disabled="selectedPhotos.length === 0" @click="handleMove">移动到</BaseButton>
+                    <BaseButton danger :disabled="selectedPhotos.length === 0" @click="handleDelete(null)">批量删除</BaseButton>
                 </div>
             </div>
         </div>
         <div v-if="photoList.length === 0" class="mt-4 text-center">暂无照片</div>
-        <div v-else class="grid grid-cols-3 gap-4 mt-4">
-            <div class="relative" v-for="(photo, index) in photoList" @click="handleSelect(photo.id as number)">
+        <div v-else class="grid grid-cols-6 auto-rows-fr gap-4 mt-4">
+            <div class="relative" v-for="(photo, index) in photoList" :key="photo.photoSrc"
+                @click="handleSelect(photo.id as number)">
                 <Checkbox :modelValue="isSelected(photo.id as number)" class="absolute left-2 top-2" />
-                <img :key="photo.photoSrc" :src="photo.photoSrc">
+                <img class="object-cover h-full" :key="photo.photoSrc" :src="photo.photoSrc">
                 <div class="absolute right-4 top-0 cursor-pointer">
                     <Dropdown trigger="hover">
                         <span class="text-2xl">...</span>

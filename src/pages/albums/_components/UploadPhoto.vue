@@ -3,7 +3,9 @@
         <Upload v-model="photoUrls" action="/api/admin/photos/upload" :disabled="isUpload" draggable multiple
             :headers="headers" :resolve-url="resolveLocation" :onBeforeEachUpload="toggleUploadState"
             :onAfterEachUpload="toggleUploadState" />
-        <div v-if="isUpload">图片上传中。。。。</div>
+        <div v-if="isUpload">
+            <Loading context="图片上传中" />
+        </div>
         <div class="grid grid-cols-3 gap-4 mt-4">
             <div class="relative" v-for="(photo, index) in photoUrls" :key="photo">
                 <span class="absolute right-2 cursor-pointer text-xl text-gray-50" @click="deletePhoto(index)">×</span>
@@ -24,6 +26,7 @@
 import { useUserStore } from '@/store/user'
 import { toast } from '@apathia/apathia'
 import { savePhotoForAlbum } from '@/apis/albums'
+import Loading from '@/components/Loading.vue'
 
 const props = defineProps<{
     close: () => void
@@ -69,6 +72,4 @@ const toggleUploadState = (file: File) => {
     return file
 }
 </script>
-<style lang='scss' scoped>
-
-</style>
+<style lang='scss' scoped></style>

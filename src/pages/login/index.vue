@@ -1,22 +1,28 @@
 <template>
-    <div class="relative w-screen h-screen login-container bg-no-repeat bg-cover bg-center">
-        <div class="absolute top-1/3 left-1/3 w-1/3 rounded-md text-gray-200 opacity-80 bg-login-bg">
-            <div class="text-2xl text-center py-8">管理员登录</div>
-            <div class="flex flex-col items-center">
-                <div class="mt-4">
-                    <span class="text-xl pr-8">账号</span>
-                    <input v-model="userForm.username" class="h-10 w-52 outline-none bg-login-bg border-b-2 border-gray-200"
-                        type="text">
-                </div>
-                <div class="mt-12">
-                    <span class="text-xl pr-8">密码</span>
-                    <input v-model="userForm.password" class="h-10 w-52 outline-none bg-login-bg border-b-2 border-gray-200"
-                        type="password" @keydown="handleKeyDown">
-                </div>
+    <div class="flex items-center justify-center relative w-screen h-screen login-container">
+        <div class="flex items-center w-1/3 rounded-3xl text-gray-500 opacity-80 bg-white shadow-2xl">
+            <div class="w-1/2">
+                <img class="p-0 rounded-tl-3xl rounded-bl-3xl" src="@/assets/logo.png" alt="">
             </div>
-            <div class="flex justify-center items-center w-full my-12 text-xl">
-                <span class="w-48 py-2 rounded bg-gray-400 text-center cursor-pointer hover:bg-gray-300 hover:text-gray-600"
-                    @click="submitLogin">登录</span>
+            <div class="w-1/2 flex flex-col justify-between items-center">
+                <div class="text-3xl text-center py-8 font-bold">管理员登录</div>
+                <div class="flex flex-col items-center">
+                    <div class="mt-4">
+                        <span class="text-xl pr-8">账号</span>
+                        <input v-model="userForm.username" class="h-12 w-64 outline-none border-b-2 border-gray-200"
+                            type="text">
+                    </div>
+                    <div class="mt-12">
+                        <span class="text-xl pr-8">密码</span>
+                        <input v-model="userForm.password" class="h-12 w-64 outline-none border-b-2 border-gray-200"
+                            type="password" @keydown="handleKeyDown">
+                    </div>
+                </div>
+                <div class="flex justify-center items-center w-full mt-12 text-xl">
+                    <span
+                        class="w-1/2 py-4 rounded bg-slate-100 text-center cursor-pointer hover:bg-stone-200 hover:text-gray-600"
+                        @click="submitLogin">登录</span>
+                </div>
             </div>
         </div>
     </div>
@@ -65,6 +71,7 @@ const handleKeyDown = async (e: KeyboardEvent) => {
 </script>
 <style lang='scss' scoped>
 .login-container {
-    background-image: url('@/assets/wallpaper.jpg');
+    /* background-image: url('@/assets/wallpaper.jpg'); */
+    background: linear-gradient(135deg, #65ccd8, #f1f5e2, #d9ece9);
 }
 </style>
