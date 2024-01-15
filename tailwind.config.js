@@ -11,6 +11,9 @@ module.exports = {
       },
       minHeight: {
         'home': '100vh'
+      },
+      minWidth: {
+        'login': '47rem'
       }
     }
   },

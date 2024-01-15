@@ -1,8 +1,8 @@
 <template>
     <div class="flex items-center justify-center relative w-screen h-screen login-container">
-        <div class="flex items-center w-1/3 rounded-3xl text-gray-500 opacity-80 bg-white shadow-2xl">
+        <div class="flex items-center w-1/3 min-w-login rounded-3xl text-gray-500 opacity-80 bg-white shadow-2xl">
             <div class="w-1/2">
-                <img class="p-0 rounded-tl-3xl rounded-bl-3xl" src="@/assets/logo.png" alt="">
+                <img class="w-full p-0 rounded-tl-3xl rounded-bl-3xl" src="@/assets/logo.png" alt="">
             </div>
             <div class="w-1/2 flex flex-col justify-between items-center">
                 <div class="text-3xl text-center py-8 font-bold">管理员登录</div>
@@ -71,7 +71,6 @@ const handleKeyDown = async (e: KeyboardEvent) => {
 </script>
 <style lang='scss' scoped>
 .login-container {
-    /* background-image: url('@/assets/wallpaper.jpg'); */
     background: linear-gradient(135deg, #65ccd8, #f1f5e2, #d9ece9);
 }
 </style>
